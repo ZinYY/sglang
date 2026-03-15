@@ -277,3 +277,6 @@ sgl-kernel/csrc/**/*_musa/
 *.glb
 *.ply
 *.npz
+
+
+test/d3LLM
