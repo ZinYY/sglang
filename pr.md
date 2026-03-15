@@ -2,7 +2,7 @@
 
 ## Summary
 
-This PR adds SGLang serving support for **d3LLM** ([arXiv:2601.07568](https://arxiv.org/abs/2601.07568)), an ultra-fast diffusion language model based on pseudo-trajectory distillation. d3LLM achieves significantly higher tokens-per-forward (TPF) than vanilla diffusion LLMs while maintaining competitive accuracy, enabling up to 5× end-to-end speedup over autoregressive baselines on H100.
+This PR adds SGLang serving support for **d3LLM** ([arXiv:2601.07568](https://arxiv.org/abs/2601.07568)), an ultra-fast diffusion language model based on pseudo-trajectory distillation. d3LLM achieves significantly higher tokens-per-forward (TPF) than vanilla diffusion LLMs while maintaining competitive accuracy, enabling up to 3×-5× end-to-end speedup over autoregressive baselines on H800 and B200.
 
 Two models are supported:
 
