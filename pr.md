@@ -9,7 +9,7 @@ Two models are supported:
 - **d3LLM-LLaDA** (8B) — an ultra-fast diffusion LLM, distilled from LLaDA, using full-sequence bidirectional attention
 - **d3LLM-Dream** (7B) — an ultra-fast diffusion LLM, distilled from Dream, using full-sequence bidirectional attention
 
-Both models require recomputing the full sequence at every decoding step (no causal KV-cache reuse), which demands non-trivial changes to SGLang's scheduling and attention pipeline. In addition, this PR extends support to the original **LLaDA-8B-Instruct** and **Dream-v0-Instruct-7B** models.
+Both models require recomputing the full sequence at every decoding step (no causal KV-cache reuse), which demands non-trivial changes to SGLang's scheduling and attention pipeline.
 
 ### Key Changes
 
