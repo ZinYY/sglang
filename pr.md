@@ -9,7 +9,7 @@ Two models are supported:
 - **d3LLM-LLaDA** (8B) — an ultra-fast diffusion LLM, distilled from LLaDA, using full-sequence bidirectional attention
 - **d3LLM-Dream** (7B) — an ultra-fast diffusion LLM, distilled from Dream, using full-sequence bidirectional attention
 
-Both models require bidirectional attention (instead of the block-causal diffusion of existing LLaDA 2.0/2.1), which demands a new dLLM decoding method support in SGLang.
+Both models require bidirectional attention (instead of the block-causal diffusion in existing LLaDA 2.0/2.1), which demands a new dLLM decoding method support in SGLang.
 
 ### Key Changes
 
