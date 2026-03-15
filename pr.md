@@ -9,14 +9,14 @@ Two models are supported:
 - **d3LLM-LLaDA** (8B) — an ultra-fast diffusion LLM, distilled from LLaDA, using full-sequence bidirectional attention
 - **d3LLM-Dream** (7B) — an ultra-fast diffusion LLM, distilled from Dream, using full-sequence bidirectional attention
 
-Both models require recomputing the full sequence at every decoding step (no causal KV-cache reuse), which demands non-trivial changes to SGLang's scheduling and attention pipeline.
+Both models require bidirectional attention (instead of the block-causal diffusion of existing LLaDA 2.0/2.1), which demands a new dLLM decoding method support in SGLang.
 
 ### Key Changes
 
 **New Files:**
 - `models/d3llm_llada.py`, `models/dream.py`: Model implementations for d3LLM-LLaDA and d3LLM-Dream
 - `dllm/algorithm/entropy_threshold.py`: `EntropyThreshold` decoding algorithm
-- `dllm/algorithm/full_attn_multi_block.py`: `FullAttnMultiBlock` decoding algorithm for d3LLM multi-block parallel decoding
+- `dllm/algorithm/full_attn_multi_block.py`: `FullAttnMultiBlock` decoding algorithm for d3LLM multi-block parallel decoding with bidirectional attention
 
 **Modified Files:**
 - `dllm/config.py`: Add `needs_full_prefill` and `pad_full_generation` flags to `DllmConfig`
@@ -30,7 +30,7 @@ Both models require recomputing the full sequence at every decoding step (no cau
 - `radix_cache.py`: Add `None` guard for `node` in `inc_lock_ref` / `dec_lock_ref`
 
 **Tests & Docs:**
-- `test/registered/dllm/test_dllm_gsm8k.py`: GSM8K-CoT benchmark test for d3LLM models
+- `test/registered/dllm/test_dllm_gsm8k.py`: GSM8K benchmark test for d3LLM models
 - `docs/supported_models/text_generation/diffusion_language_models.md`: Updated documentation
 
 ## Benchmark Results
